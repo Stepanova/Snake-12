@@ -1,9 +1,3 @@
-var mainMusic = document.getElementById("main_music"),
-		foodMusic = document.getElementById("food"), 
-		goMusic = document.getElementById("gameOver");
-
-var files = [mainMusic, foodMusic, goMusic];
-
 document.ontouchstart = function(event) 
 { 
 	event.preventDefault();
@@ -62,7 +56,7 @@ function Draw()
 			game.updateScore();
 			food.makeFood();
 			snake.length++;
-			
+
 			if(snake.speed > 25)
 			{
 				clearInterval(game.timerHandle);
@@ -75,7 +69,6 @@ function Draw()
 
 function Move()
 {
-mainMusic.play();
 	this.speed = 120;
 	
 	this.left = function()
@@ -86,11 +79,8 @@ mainMusic.play();
 			x = x - gridsize;
 			if(x < 0)
 			 {
-				//mainMusic.pause();
-				//goMusic.play();
 				game.reset();
 				window.location = "gameOver.html";
-
 			 }
 			sketch.drawSnake(x, y);
 		}
@@ -104,11 +94,8 @@ mainMusic.play();
 			x = x + gridsize;
 			if(x  >= sketch.canvas.width)
 			 {
-				//mainMusic.pause();
-				//goMusic.play();
 				game.reset();
 				window.location = "gameOver.html";
-				
 			 }
 			sketch.drawSnake(x, y);
 		}
@@ -122,11 +109,8 @@ mainMusic.play();
 			y = y - gridsize;
 			if(y < 0)
 			 {
-			 	//mainMusic.pause();
-				//goMusic.play();
 				game.reset();
 				window.location = "gameOver.html";
-
 			 }
 
 			sketch.drawSnake(x , y);
@@ -141,11 +125,8 @@ mainMusic.play();
 			y = y + gridsize;
 			if(y >=  sketch.canvas.height)
 			 {
-				//mainMusic.pause();
-				//goMusic.play();
 				game.reset();
 				window.location = "gameOver.html";
-				
 			 }
 			sketch.drawSnake(x , y);
 		}
@@ -228,9 +209,7 @@ function Food()
 	//eat food
 	this.eatFood = function()
 	{
-		
 		return (this.foodLoc[0] == x && this.foodLoc[1] == y);
-			
 	};
 	
 	this.makeFood = function()
@@ -243,7 +222,6 @@ function Food()
 			this.makeFood();
 		else
 			sketch.drawFood(this.foodLoc[0], this.foodLoc[1]);
-			
 	};
 }
 
@@ -330,13 +308,13 @@ function Game()
 	{
 		if(window.orientation == 0)
 		{//portrait
-			sketch.canvas.height = 800;
+			sketch.canvas.height = 1024;
 		    sketch.canvas.width = 600;
 		}
 		else
 		{//landscape
 			sketch.canvas.height = 600;
-		    sketch.canvas.width = 800;
+		    sketch.canvas.width = 1024;
 		}
 		direction = 2;
 		sketch.clearCanvas();
@@ -353,13 +331,13 @@ function Main()
 
 	if(window.orientation == 0)
 	{//portrait
-		sketch.canvas.height = 800;
+		sketch.canvas.height = 1024;
 	    sketch.canvas.width = 600;
 	}
 
 	{	//landscape
 		sketch.canvas.height = 600;
-	    sketch.canvas.width = 800;
+	    sketch.canvas.width = 1024;
 	}
 
 	//snake head position

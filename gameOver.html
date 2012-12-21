@@ -10,17 +10,14 @@
 		}
 
 		var div = document.getElementById('DgameOver');
-		div.height = 600;
-		div.width = 800;
-		hitType = "self";
-		hitType == "wall";
+		div.height = screen.availHeight;
+		div.width = screen.availWidth;
 		
 		document.getElementById('hscore').innerHTML = (localStorage["snake_hs"] == null) ? "0" : localStorage["snake_hs"];
 		
 		document.getElementById('tscore').innerHTML = (localStorage["snake_ts"] == null) ? "ERROR" : localStorage["snake_ts"];
 	}
 
-			goMusic.play();
 	function back()
 	{
 		window.location = "snake.html";
@@ -31,10 +28,7 @@
 		blackberry.app.exit();
 	}
 	</script>
-	<audio id="gameOver">
-	<source src="music/go.mp3" type="audio/mp3" />
-	<source src="music/go.ogg" type="audio/ogg"/>
-</audio>
+	
 </head>
 <body style="background-color:black; color:white">
 <div style="text-align:center;">
